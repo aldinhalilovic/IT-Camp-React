@@ -12,9 +12,12 @@ const BkngCard = () => {
           <h1>Ime hotela</h1>
           <div className="location">
             <a href="">Zemun,Beograd</a>
-            <a href="">Prikazi na mapi</a>
+            <a href="">Prikaži na mapi</a>
+            <a href="" className="km">
+              4,4 km od centra
+            </a>
           </div>
-          <p>
+          <p className="description">
             Smešten u Zemunu, na 5,9 km od centra Beograda, hotel Theater nudi
             elegantne i udobne sobe sa besplatnim bežičnim internetom, bar u
             foajeu i terasu.
@@ -22,15 +25,17 @@ const BkngCard = () => {
         </div>
         <div className="review">
           <div className="text">
-            <div>
-              <h3>Sjajan</h3>
-              <h5>50 recenzija</h5>
-            </div>
-            <div className="star">
-              <h3>8,7</h3>
+            <div className="rating">
+              <div className="customers">
+                <div className="first">Sjajan</div>
+                <div className="second"> 57 recenzija</div>
+              </div>
+              <div className="star">
+                <h3>8,7</h3>
+              </div>
             </div>
             <div className="price">
-              <h2>Prikazi cene</h2>
+              <h2>Prikaži cene</h2>
             </div>
           </div>
         </div>

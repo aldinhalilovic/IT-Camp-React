@@ -60,6 +60,13 @@ export default function App() {
   return (
     <div>
       <BkngCard />
+      <BkngCard />
+      <BkngCard />
+      <BkngCard />
+      <BkngCard />
+      <BkngCard />
+      <BkngCard />
+      <BkngCard />
     </div>
   );
 }
