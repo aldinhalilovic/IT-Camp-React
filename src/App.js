@@ -59,7 +59,16 @@ import BkngCard from "./components/BkngCard/BkngCard";
 export default function App() {
   return (
     <div>
-      <BkngCard />
+      <BkngCard
+        name="Moskva"
+        avarageRate={1}
+        distance={3}
+        town="Novi Pazar"
+        place="Lug"
+        comment="Odlican"
+        num={8}
+        source="https://cf.bstatic.com/xdata/images/hotel/square600/71426844.webp?k=fe5ffd67b7cbb2caeb054ec5c135bd81a0f7b038ec545874f1b007db9b1f2cc9&o=&s=1"
+      />
       <BkngCard />
       <BkngCard />
       <BkngCard />
