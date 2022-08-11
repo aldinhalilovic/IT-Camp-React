@@ -1,0 +1,43 @@
+.place {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.bigCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35vh;
+    width: 41vw;
+    border: 1px solid rgba(128, 128, 128, 0.68);
+    border-radius: 1%;
+}
+
+.image img {
+    height: 30vh;
+    width: auto;
+    margin-left: 13px;
+    border-radius: 2%;
+}
+
+.main {
+    margin-left: 10px;
+}
+
+.main h1 {
+    font-size: 20px;
+    color: #0071C2;
+    margin-left: 5px;
+}
+
+.main .location a {
+    font-weight: 600;
+    font-size: 12px;
+    margin-left: 5px;
+    color: #0071C2;
+}
+
+/* da se doda X km do centra u html, i da se nastavi redom */

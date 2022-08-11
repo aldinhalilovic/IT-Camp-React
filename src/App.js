@@ -31,26 +31,35 @@
 
 // export default App;
 
+// import Kartica from "./components/Card/Card";
+
+// export default function App() {
+//   return (
+//     <div className="card-container">
+//       <Kartica
+//         image={"https://www.w3schools.com/howto/img_avatar.png"}
+//         name="John Doe"
+//         occupation="Software Engineer"
+//       />
+//       <Kartica
+//         image={"https://www.w3schools.com/howto/img_avatar2.png"}
+//         name="John Doe"
+//         occupation="Lawyer"
+//       />
+//       <Kartica />
+//       <Kartica />
+//     </div>
+//   );
+// }
+
 import React from "react";
 import "./App.css";
-
-import Kartica from "./components/Card/Card";
+import BkngCard from "./components/BkngCard/BkngCard";
 
 export default function App() {
   return (
-    <div className="card-container">
-      <Kartica
-        image={"https://www.w3schools.com/howto/img_avatar.png"}
-        name="John Doe"
-        occupation="Software Engineer"
-      />
-      <Kartica
-        image={"https://www.w3schools.com/howto/img_avatar2.png"}
-        name="John Doe"
-        occupation="Lawyer"
-      />
-      <Kartica />
-      <Kartica />
+    <div>
+      <BkngCard />
     </div>
   );
 }
