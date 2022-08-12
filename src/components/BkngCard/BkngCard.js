@@ -4,7 +4,6 @@ import "./BkngCard.css";
 const BkngCard = (props) => {
   const { name, avarageRate, distance, place, town, comment, num, source } =
     props;
-
   return (
     <div className="place">
       <div className="bigCard">

@@ -7,19 +7,23 @@
     margin-top: 60px;
 }
 
+.bigCard:hover {
+    background-color: #ebf3ff;
+}
+
 .bigCard {
+    height: 35vh;
+    width: 46.5vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 35vh;
-    width: 46.5vw;
     border: 1px solid rgba(128, 128, 128, 0.68);
     border-radius: 1%;
 }
 
 .image img {
     height: 30vh;
-    width: auto;
+    width: 14vw;
     margin-left: 13px;
     border-radius: 2%;
 }
@@ -30,11 +34,12 @@
 }
 
 .main h1 {
+    
+    width:fit-content;
     font-size: 20px;
     color: #0071C2;
     margin-left: 5px;
     transition: 0.1s;
-    width: 50px;
     text-transform: capitalize;
 }
 
@@ -49,8 +54,8 @@
 .main .location a {
     font-weight: 600;
     font-size: 12px;
-    margin-left: 5px;
     color: #0071C2;
+    margin-left: 5px;
 }
 
 .main .location .km {
@@ -76,7 +81,6 @@
 }
 
 .review .rating .customers{
-    /* background-color: blue; */
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -84,9 +88,9 @@
 }
 
 .review .rating .star {
-    margin-top: 7px;
     height: 35px;
     width: 40px;
+    margin-top: 7px;
     margin-left: 5px;
     display: flex;
     justify-content: center;
@@ -110,15 +114,15 @@
 }
 
 .review .price {
+    width: 110px;
+    height: 40px;
     background-color:#0071C2;
     color: #fff;
-    margin-top: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 110px;
-    height: 40px;
     font-size: 10px ;
+    margin-top: 35px;
     margin-bottom: -12px;
     margin-left: 10px;
 }
