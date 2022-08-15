@@ -1,13 +1,19 @@
 import React from "react";
+import Title from "../Title/Title";
 
 // const styles = ;
 //  const {name,children} = props
-const Greeting = (props) => {
-  const { name, children, fontSize } = props;
+// const Greeting = ({ name, children, fontSize }) => {
+const Greeting = ({ handleParentClick }) => {
+  const sayWelcome = (name) => {
+    alert(`Welcome ${name}`);
+  };
   return (
     <div>
-      {children}
+      {/* {children}
+
       <h3
+        onClick={() => sayWelcome(name)}
         style={{
           color: "blue",
           fontSize: fontSize,
@@ -15,7 +21,9 @@ const Greeting = (props) => {
       >
         Hello, {name}
       </h3>
-      <p>How are you</p>
+      <p>How are you</p> */}
+      <button onClick={handleParentClick}>kasfjdklsfjklds</button>
+      <Title clickHandler={handleParentClick} />
     </div>
   );
 };

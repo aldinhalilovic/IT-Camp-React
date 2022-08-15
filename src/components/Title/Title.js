@@ -8,14 +8,10 @@ import React from "react";
 //     </h3>
 // };
 
-const Title = ({ name, age }) => {
+const Title = ({ name, age, clickHandler }) => {
   // console.log(props)
 
-  return (
-    <h3>
-      Zdravo {name}, imas {age} godina
-    </h3>
-  );
+  return <h3 onClick={clickHandler}>Zdravo</h3>;
 };
 
 export default Title;
