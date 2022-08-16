@@ -86,50 +86,50 @@
 
 //8.15
 
-import React, { useState } from "react";
-import "./App.css";
-import Greeting from "./components/Greeting/Greeting";
-import Incrementer from "./components/Incrementer/Incrementer";
+// import React, { useState } from "react";
+// import "./App.css";
+// import Greeting from "./components/Greeting/Greeting";
+// import Incrementer from "./components/Incrementer/Incrementer";
 
-export default function App() {
-  const sayHello = (name) => {
-    alert(`Hello ${name}`);
-  };
+// export default function App() {
+//   const sayHello = (name) => {
+//     alert(`Hello ${name}`);
+//   };
 
-  const handleClick = () => {
-    alert(`Ova funkcija se nalazi u App js`);
-  };
+//   const handleClick = () => {
+//     alert(`Ova funkcija se nalazi u App js`);
+//   };
 
-  //clickevent
-  //onchangeevent
-  //onsubmit
+//   //clickevent
+//   //onchangeevent
+//   //onsubmit
 
-  //LIFTING STATEUP
-  //RERENDER
+//   //LIFTING STATEUP
+//   //RERENDER
 
-  // onClick na svaki elemnt moze da se prosledi
+//   // onClick na svaki elemnt moze da se prosledi
 
-  //SA ATRIBUTOM,PRAVI SE DRUGA FUNKCIJA
-  // let count = 0;
-  const [count, setCount] = React.useState(0);
-  // const [naesto, setNesto] = useState()
+//   //SA ATRIBUTOM,PRAVI SE DRUGA FUNKCIJA
+//   // let count = 0;
+//   const [count, setCount] = React.useState(0);
+//   // const [naesto, setNesto] = useState()
 
-  const countIncrease = () => {
-    setCount((prev) => prev + 1);
-  };
+//   const countIncrease = () => {
+//     setCount((prev) => prev + 1);
+//   };
 
-  return (
-    // <div className="card-container">
-    //   <button onClick={sayHello}>Click me</button>
-    // </div>
-    <div>
-      <Incrementer />
-    </div>
-  );
-}
+//   return (
+//     // <div className="card-container">
+//     //   <button onClick={sayHello}>Click me</button>
+//     // </div>
+//     <div>
+//       <Incrementer />
+//     </div>
+//   );
+// }
 // <div className="card-container">
-{
-  /* <button onClick={() => sayHello("John")}>Click me</button>
+// {
+/* <button onClick={() => sayHello("John")}>Click me</button>
       <button
         onClick={() => {
           console.log("Alkajslkdjlskdj");
@@ -138,13 +138,33 @@ export default function App() {
         alksdjaklsdj
       </button>
       <hr></hr> */
-}
+// }
 // {count}
 // <button onClick={countIncrease}>Increase</button>
-{
-  /* <button onClick={() => count++}> Increase </button> */
-}
-{
-  /* <Greeting name="Aldin" handleParentClick={handleClick} /> */
-}
+// {
+/* <button onClick={() => count++}> Increase </button> */
+// }
+// {
+/* <Greeting name="Aldin" handleParentClick={handleClick} /> */
+// }
 // </div>
+
+import React from "react";
+import "./App.css";
+import Greeting from "./components/Greeting/Greeting";
+import Practice from "./components/Practice/Practice";
+
+export default function App() {
+  const sayHello = () => {
+    alert("SAD JE ALDIN");
+  };
+  return (
+    <div className="card-container">
+      <button onClick={sayHello}>Click</button>
+      <br></br>
+      <Practice clickHandler={sayHello} />
+      <br></br>
+      {/* <Greeting clickHandler={sayHello} /> */}
+    </div>
+  );
+}

@@ -22,8 +22,7 @@ const Greeting = ({ handleParentClick }) => {
         Hello, {name}
       </h3>
       <p>How are you</p> */}
-      <button onClick={handleParentClick}>kasfjdklsfjklds</button>
-      <Title clickHandler={handleParentClick} />
+      <button onClick={handleParentClick}>Greeting</button>
     </div>
   );
 };
