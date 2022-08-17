@@ -185,6 +185,10 @@ export default function App() {
     email: "",
     hobi: "",
     password: "",
+    publicPassword: {
+      first: "FIRST",
+      second: "",
+    },
   });
 
   return (
@@ -193,6 +197,7 @@ export default function App() {
         onSubmit={(e) => {
           e.preventDefault();
           console.log(
+            // formValues
             `Name: ${formValues.name}, Email: ${formValues.email}, Hobi: ${formValues.hobi}, Password : ${formValues.password}`
           );
         }}
@@ -203,13 +208,14 @@ export default function App() {
           id="html"
           name="fav_language"
           value={formValues.name}
-          onChange={(event) =>
+          onChange={(e) =>
             setFormValues((prevState) => ({
               ...prevState,
-              name: event.target.value,
+              name: e.target.value,
             }))
           }
         />
+        <br />
         <br />
         <label htmlFor="css">Email</label>
         <input
@@ -217,8 +223,14 @@ export default function App() {
           id="css"
           name="fav_language"
           value={formValues.email}
-          // onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) =>
+            setFormValues((prev) => ({
+              ...prev,
+              email: e.target.value,
+            }))
+          }
         />
+        <br />
         <br />
         <label htmlFor="javascript">Hobi</label>
         <input
@@ -226,8 +238,14 @@ export default function App() {
           id="javascript"
           name="fav_language"
           value={formValues.hobi}
-          // onChange={(e) => setHobi(e.target.value)}
+          onChange={(e) =>
+            setFormValues((prev) => ({
+              ...prev,
+              hobi: e.target.value,
+            }))
+          }
         />
+        <br />
         <br />
         <label htmlFor="password">Password</label>
         <input
@@ -235,9 +253,19 @@ export default function App() {
           id="password"
           name="fav_language"
           value={formValues.password}
-          // onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) =>
+            setFormValues((prev) => ({
+              ...prev,
+              password: e.target.value,
+              publicPassword: {
+                ...formValues.publicPassword,
+                second: formValues.hobi,
+              },
+            }))
+          }
         />
         <br />
+        {/* <p>{formValues.publicPassword.second}</p> */}
         <br />
         <input type="submit" defaultValue="Submit" />
       </form>
