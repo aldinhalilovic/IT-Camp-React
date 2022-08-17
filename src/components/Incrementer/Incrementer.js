@@ -15,7 +15,7 @@ export default function Incrementer() {
         -{" "}
       </button>
       {number}
-      <button onClick={numberIncrease}> +</button>
+      <button onClick={numberIncrease}> + </button>
       {/* <button onClick = {() => setCount ((prev) prev + 1)} */}
     </div>
   );

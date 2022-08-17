@@ -149,22 +149,98 @@
 // }
 // </div>
 
-import React from "react";
+// import React from "react";
+// import "./App.css";
+// import Greeting from "./components/Greeting/Greeting";
+// import Practice from "./components/Practice/Practice";
+
+// export default function App() {
+//   const sayHello = () => {
+//     alert("SAD JE ALDIN");
+//   };
+//   return (
+//     <div className="card-container">
+//       <button onClick={sayHello}>Click</button>
+//       <br></br>
+//       <Practice clickHandler={sayHello} />
+//       <br></br>
+//       <h1>alskdj</h1>
+//     </div>
+//   );
+// }
+
+// 17.8
+
+import React, { useState } from "react";
 import "./App.css";
-import Greeting from "./components/Greeting/Greeting";
-import Practice from "./components/Practice/Practice";
 
 export default function App() {
-  const sayHello = () => {
-    alert("SAD JE ALDIN");
-  };
+  // const [name, setName] = React.useState("");
+  // const [email, setEmail] = React.useState("");
+  // const [hobi, setHobi] = React.useState("");
+  // const [password, setPassword] = useState("");
+  const [formValues, setFormValues] = useState({
+    //USESTATE za FORME, da se ne bi kucalo redom....
+    name: "",
+    email: "",
+    hobi: "",
+    password: "",
+  });
+
   return (
     <div className="card-container">
-      <button onClick={sayHello}>Click</button>
-      <br></br>
-      <Practice clickHandler={sayHello} />
-      <br></br>
-      {/* <Greeting clickHandler={sayHello} /> */}
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log(
+            `Name: ${formValues.name}, Email: ${formValues.email}, Hobi: ${formValues.hobi}, Password : ${formValues.password}`
+          );
+        }}
+      >
+        <label htmlFor="html">Name</label>
+        <input
+          type="text"
+          id="html"
+          name="fav_language"
+          value={formValues.name}
+          onChange={(event) =>
+            setFormValues((prevState) => ({
+              ...prevState,
+              name: event.target.value,
+            }))
+          }
+        />
+        <br />
+        <label htmlFor="css">Email</label>
+        <input
+          type="email"
+          id="css"
+          name="fav_language"
+          value={formValues.email}
+          // onChange={(e) => setEmail(e.target.value)}
+        />
+        <br />
+        <label htmlFor="javascript">Hobi</label>
+        <input
+          type="text"
+          id="javascript"
+          name="fav_language"
+          value={formValues.hobi}
+          // onChange={(e) => setHobi(e.target.value)}
+        />
+        <br />
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="fav_language"
+          value={formValues.password}
+          // onChange={(e) => setPassword(e.target.value)}
+        />
+        <br />
+        <br />
+        <input type="submit" defaultValue="Submit" />
+      </form>
     </div>
   );
 }
