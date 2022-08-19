@@ -171,104 +171,190 @@
 
 // 17.8
 
+// import React, { useState } from "react";
+// import "./App.css";
+
+// export default function App() {
+//   // const [name, setName] = React.useState("");
+//   // const [email, setEmail] = React.useState("");
+//   // const [hobi, setHobi] = React.useState("");
+//   // const [password, setPassword] = useState("");
+//   const [formValues, setFormValues] = useState({
+//     //USESTATE za FORME, da se ne bi kucalo redom....
+//     name: "",
+//     email: "",
+//     hobi: "",
+//     password: "",
+//     publicPassword: {
+//       first: "FIRST",
+//       second: "",
+//     },
+//   });
+
+//   return (
+//     <div className="card-container">
+//       <form
+//         onSubmit={(e) => {
+//           e.preventDefault();
+//           console.log(
+//             // formValues
+//             `Name: ${formValues.name}, Email: ${formValues.email}, Hobi: ${formValues.hobi}, Password : ${formValues.password}`
+//           );
+//         }}
+//       >
+//         <label htmlFor="html">Name</label>
+//         <input
+//           type="text"
+//           id="html"
+//           name="fav_language"
+//           value={formValues.name}
+//           onChange={(e) =>
+//             setFormValues((prevState) => ({
+//               ...prevState,
+//               name: e.target.value,
+//             }))
+//           }
+//         />
+//         <br />
+//         <br />
+//         <label htmlFor="css">Email</label>
+//         <input
+//           type="email"
+//           id="css"
+//           name="fav_language"
+//           value={formValues.email}
+//           onChange={(e) =>
+//             setFormValues((prev) => ({
+//               ...prev,
+//               email: e.target.value,
+//             }))
+//           }
+//         />
+//         <br />
+//         <br />
+//         <label htmlFor="javascript">Hobi</label>
+//         <input
+//           type="text"
+//           id="javascript"
+//           name="fav_language"
+//           value={formValues.hobi}
+//           onChange={(e) =>
+//             setFormValues((prev) => ({
+//               ...prev,
+//               hobi: e.target.value,
+//             }))
+//           }
+//         />
+//         <br />
+//         <br />
+//         <label htmlFor="password">Password</label>
+//         <input
+//           type="password"
+//           id="password"
+//           name="fav_language"
+//           value={formValues.password}
+//           onChange={(e) =>
+//             setFormValues((prev) => ({
+//               ...prev,
+//               password: e.target.value,
+//               publicPassword: {
+//                 ...formValues.publicPassword,
+//                 second: formValues.hobi,
+//               },
+//             }))
+//           }
+//         />
+//         <br />
+//         {/* <p>{formValues.publicPassword.second}</p> */}
+//         <br />
+//         <input type="submit" defaultValue="Submit" />
+//       </form>
+//     </div>
+//   );
+// }
+// 19.8
+
+// import React, { useState } from "react";
+// import "./App.css";
+
+// const DATA = [
+//   "Prva recenica",
+//   "Druga recenica",
+//   "Treca recenica",
+//   ".....",
+//   "Stota recenica",
+// ];
+
+// export default function App() {
+//   const [array, setArray] = useState(DATA);
+//   // 1.
+//   const generateRandom = () => Math.random().toString(36).slice(2, 7);
+//   // 2.
+//   const reverseArray = () => {
+//     const _array = [...array]; //kopija niza
+//     const reversed = _array.reverse();
+//     setArray(reversed);
+//   };
+//   //sablon za nizove
+
+//   return (
+//     <div className="card-container">
+//       <button onClick={() => setArray((prev) => [generateRandom(), ...prev])}>
+//         Dodaj random recenicu
+//       </button>
+//       <br />
+//       <button onClick={reverseArray}>Reverse recenice</button>
+//       <ul>
+//         {array.map((el) => (
+//           <li key={el}>{el}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
 import React, { useState } from "react";
 import "./App.css";
+import TeamCard from "./components/TeamCard/TeamCard";
+
+const favoriteTeams = [
+  { id: 0, name: "Arsenal", points: 6 },
+  { id: 1, name: "Man City", points: 6 },
+  { id: 2, name: "Man United", points: 0 },
+  { id: 3, name: "Liverpool", points: 2 },
+  { id: 4, name: "Pazar", points: 9 },
+  { id: 5, name: "Partizan", points: 5 },
+];
 
 export default function App() {
-  // const [name, setName] = React.useState("");
-  // const [email, setEmail] = React.useState("");
-  // const [hobi, setHobi] = React.useState("");
-  // const [password, setPassword] = useState("");
-  const [formValues, setFormValues] = useState({
-    //USESTATE za FORME, da se ne bi kucalo redom....
-    name: "",
-    email: "",
-    hobi: "",
-    password: "",
-    publicPassword: {
-      first: "FIRST",
-      second: "",
-    },
-  });
+  const [teams, setTeams] = useState(favoriteTeams);
+  const deleteTeam = (id) => {
+    const newTeams = teams.filter((team) => team.id !== id);
+    setTeams(newTeams);
+  };
 
   return (
     <div className="card-container">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log(
-            // formValues
-            `Name: ${formValues.name}, Email: ${formValues.email}, Hobi: ${formValues.hobi}, Password : ${formValues.password}`
-          );
-        }}
-      >
-        <label htmlFor="html">Name</label>
-        <input
-          type="text"
-          id="html"
-          name="fav_language"
-          value={formValues.name}
-          onChange={(e) =>
-            setFormValues((prevState) => ({
-              ...prevState,
-              name: e.target.value,
-            }))
-          }
-        />
-        <br />
-        <br />
-        <label htmlFor="css">Email</label>
-        <input
-          type="email"
-          id="css"
-          name="fav_language"
-          value={formValues.email}
-          onChange={(e) =>
-            setFormValues((prev) => ({
-              ...prev,
-              email: e.target.value,
-            }))
-          }
-        />
-        <br />
-        <br />
-        <label htmlFor="javascript">Hobi</label>
-        <input
-          type="text"
-          id="javascript"
-          name="fav_language"
-          value={formValues.hobi}
-          onChange={(e) =>
-            setFormValues((prev) => ({
-              ...prev,
-              hobi: e.target.value,
-            }))
-          }
-        />
-        <br />
-        <br />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="fav_language"
-          value={formValues.password}
-          onChange={(e) =>
-            setFormValues((prev) => ({
-              ...prev,
-              password: e.target.value,
-              publicPassword: {
-                ...formValues.publicPassword,
-                second: formValues.hobi,
-              },
-            }))
-          }
-        />
-        <br />
-        {/* <p>{formValues.publicPassword.second}</p> */}
-        <br />
-        <input type="submit" defaultValue="Submit" />
-      </form>
+      <button
+        onClick={() =>
+          setTeams((prev) => [
+            ...prev,
+            { id: Math.random, name: "Novi Tim", points: 4 },
+          ])
+        }
+      />
+      {teams.map((team) => (
+        <div key={team.id}>
+          <TeamCard
+            name={team.name}
+            points={team.points}
+            onDeleteBtn={() => deleteTeam(team.id)}
+          />
+        </div>
+      ))}
     </div>
   );
 }
+
+// CryptoForm komponenta
+// sadrzava IME VALUTE, CENA, pored toga DUGME
