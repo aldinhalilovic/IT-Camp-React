@@ -339,7 +339,7 @@ export default function App() {
         onClick={() =>
           setTeams((prev) => [
             ...prev,
-            { id: Math.random, name: "Novi Tim", points: 4 },
+            { id: Math.random, name: "Novi Tim Pazar", points: 4 },
           ])
         }
       />
