@@ -313,48 +313,67 @@
 //   );
 // }
 
-import React, { useState } from "react";
-import "./App.css";
-import TeamCard from "./components/TeamCard/TeamCard";
+// import React, { useState } from "react";
+// import "./App.css";
+// import TeamCard from "./components/TeamCard/TeamCard";
 
-const favoriteTeams = [
-  { id: 0, name: "Arsenal", points: 6 },
-  { id: 1, name: "Man City", points: 6 },
-  { id: 2, name: "Man United", points: 0 },
-  { id: 3, name: "Liverpool", points: 2 },
-  { id: 4, name: "Pazar", points: 9 },
-  { id: 5, name: "Partizan", points: 5 },
-];
+// const favoriteTeams = [
+//   { id: 0, name: "Arsenal", points: 6 },
+//   { id: 1, name: "Man City", points: 6 },
+//   { id: 2, name: "Man United", points: 0 },
+//   { id: 3, name: "Liverpool", points: 2 },
+//   { id: 4, name: "Pazar", points: 9 },
+//   { id: 5, name: "Partizan", points: 5 },
+// ];
+
+// export default function App() {
+//   const [teams, setTeams] = useState(favoriteTeams);
+//   const deleteTeam = (id) => {
+//     const newTeams = teams.filter((team) => team.id !== id);
+//     setTeams(newTeams);
+//   };
+
+//   return (
+//     <div className="card-container">
+//       {/* <button
+//         onClick={() =>
+//           setTeams((prev) => [
+//             ...prev,
+//             { id: Math.random, name: "Novi Tim Pazar", points: 4 },
+//           ])
+//         }
+//       />
+//       {teams.map((team) => (
+//         <div key={team.id}>
+//           <TeamCard
+//             name={team.name}
+//             points={team.points}
+//             onDeleteBtn={() => deleteTeam(team.id)}
+//           />
+//         </div>
+//       ))} */}
+//     </div>
+//   );
+// }
+
+// CryptoForm komponenta
+// sadrzava IME VALUTE, CENA, pored toga DUGME
+
+import React, { useEffect } from "react";
+import "./App.css";
 
 export default function App() {
-  const [teams, setTeams] = useState(favoriteTeams);
-  const deleteTeam = (id) => {
-    const newTeams = teams.filter((team) => team.id !== id);
-    setTeams(newTeams);
-  };
-
+  useEffect(() => {
+    console.log("pozovi");
+  });
   return (
     <div className="card-container">
-      <button
-        onClick={() =>
-          setTeams((prev) => [
-            ...prev,
-            { id: Math.random, name: "Novi Tim Pazar", points: 4 },
-          ])
-        }
-      />
-      {teams.map((team) => (
-        <div key={team.id}>
-          <TeamCard
-            name={team.name}
-            points={team.points}
-            onDeleteBtn={() => deleteTeam(team.id)}
-          />
-        </div>
-      ))}
+      <h1>lksdjflkdsjf</h1>
     </div>
   );
 }
 
-// CryptoForm komponenta
-// sadrzava IME VALUTE, CENA, pored toga DUGME
+// kad se mounta komponenta, da se prikupe podaci, da se podaci sa servera nedje ubace(u state)
+
+// funkcija get hosts, treba da se mapira taj ceo objekat
+//POST ITEM KOMPONENTA
