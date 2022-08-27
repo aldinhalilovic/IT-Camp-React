@@ -359,21 +359,41 @@
 // CryptoForm komponenta
 // sadrzava IME VALUTE, CENA, pored toga DUGME
 
-import React, { useEffect } from "react";
-import "./App.css";
+// import React, { useEffect, useState } from "react";
+// import "./App.css";
 
-export default function App() {
-  useEffect(() => {
-    console.log("pozovi");
-  });
-  return (
-    <div className="card-container">
-      <h1>lksdjflkdsjf</h1>
-    </div>
-  );
-}
+// export default function App() {
+//   const [number, setNumber] = useState(0);
+//   const [name, setName] = useState("Aldin");
+
+//   useEffect(() => {
+//     console.log("pozovi");
+//   }, [name]);
+//   return (
+//     <div className="card-container">
+//       {number}
+//       <button onClick={() => setNumber(Math.random())}>Promeni broj</button>
+//       {name}
+//       <button onClick={() => setName(Math.random())}>Promeni IME</button>
+//     </div>
+//   );
+// }
 
 // kad se mounta komponenta, da se prikupe podaci, da se podaci sa servera nedje ubace(u state)
 
 // funkcija get hosts, treba da se mapira taj ceo objekat
 //POST ITEM KOMPONENTA
+
+import React from "react";
+import "./App.css";
+import PostList from "./components/PostList/Postlist";
+
+const App = () => {
+  return (
+    <div>
+      <PostList />
+    </div>
+  );
+};
+
+export default App;
