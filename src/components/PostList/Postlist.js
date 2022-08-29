@@ -17,11 +17,11 @@ const PostList = () => {
 
   return (
     <div className="container">
-      <p>
+      <div>
         {data.map((el) => {
           return <PostItem key={el.id} title={el.title} body={el.body} />;
         })}
-      </p>
+      </div>
     </div>
   );
 };

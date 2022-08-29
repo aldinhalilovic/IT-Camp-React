@@ -384,14 +384,71 @@
 // funkcija get hosts, treba da se mapira taj ceo objekat
 //POST ITEM KOMPONENTA
 
-import React from "react";
+// import React from "react";
+// import "./App.css";
+// import PostList from "./components/PostList/Postlist";
+
+// const App = () => {
+//   return (
+//     <div>
+//       <PostList />
+//     </div>
+//   );
+// };
+
+// export default App
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "./App.css";
-import PostList from "./components/PostList/Postlist";
+
+const BASE_URL = "https://api.quotable.io";
 
 const App = () => {
+  const [authors, setAuthors] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState();
+  const [loadingPage, setLoadingPage] = useState(false);
+
+  function getAuthors(page) {
+    // setLoadingPage(true);
+    axios
+      .get(`${BASE_URL}/authors?sortBy=quoteCount&page=${page}`)
+      .then((res) => {
+        setCurrentPage(res.data.page);
+        setTotalPages(res.data.totalPages);
+        setAuthors(res.data.results);
+        // setLoadingPage(true);
+      });
+  }
+  console.log(totalPages);
+
+  useEffect(() => {
+    getAuthors(currentPage);
+  }, [currentPage]);
   return (
-    <div>
-      <PostList />
+    <div className="card-container">
+      <h1>Axios is installed</h1>
+      <h1>
+        Page {currentPage} / {totalPages}
+      </h1>
+      <button onClick={() => setCurrentPage((prev) => prev + 1)}>
+        Next page
+      </button>
+      {!loadingPage ? (
+        <div>
+          {authors.map((el) => (
+            <div key={el._id}>
+              <h3>{el.name}</h3>
+              <h4>{el.description}</h4>
+              <p>{el.bio}</p>
+              <p>Quote count : {el.quoteCount}</p>
+              <hr />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <h1>Loading page</h1>
+      )}
     </div>
   );
 };
