@@ -4,18 +4,24 @@ import "./PostList.css";
 
 const PostList = () => {
   const [data, setData] = useState([]);
-  const [title, setTitle] = useState([]);
 
   function getData() {
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch(`https://jsonplaceholder.typicode.com/posts`)
       .then((el) => el.json())
       .then((prev) => setData(prev));
   }
 
-  useEffect(() => getData, []);
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
-    <div>
-      <h1></h1>
+    <div className="container">
+      <p>
+        {data.map((el) => {
+          return <PostItem key={el.id} title={el.title} body={el.body} />;
+        })}
+      </p>
     </div>
   );
 };
