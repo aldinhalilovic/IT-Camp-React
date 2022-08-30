@@ -397,58 +397,90 @@
 // };
 
 // export default App
+
+// const BASE_URL = "https://api.quotable.io";
+
+// const App = () => {
+//   const [authors, setAuthors] = useState([]);
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [totalPages, setTotalPages] = useState();
+//   const [loadingPage, setLoadingPage] = useState(true);
+
+//   function getAuthors(page) {
+//     setLoadingPage(true);
+//     try {
+//       axios
+//         .get(`${BASE_URL}/authors?sortBy=quoteCount&page=${page}`)
+//         .then((res) => {
+//           setCurrentPage(res.data.page);
+//           setTotalPages(res.data.totalPages);
+//           setAuthors(res.data.results);
+//         });
+//     } catch (e) {
+//       console.log(e);
+//     } finally {
+//       setLoadingPage(false);
+//     }
+//   }
+
+//   useEffect(() => {
+//     getAuthors(currentPage);
+//   }, [currentPage]);
+//   return (
+//     <div className="card-container">
+//       <h1>Axios is installed</h1>
+//       <h1>
+//         Page {currentPage} / {totalPages}
+//       </h1>
+//       <button onClick={() => setCurrentPage((prev) => prev + 1)}>
+//         Next page
+//       </button>
+//       {!loadingPage ? (
+//         <div>
+//           {authors.map((el) => (
+//             <div key={el._id}>
+//               <h3>{el.name}</h3>
+//               <h4>{el.description}</h4>
+//               <p>{el.bio}</p>
+//               <p>Quote count : {el.quoteCount}</p>
+//               <hr />
+//             </div>
+//           ))}
+//         </div>
+//       ) : (
+//         <h1>Loading page...</h1>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default App;
+
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import AxiosPractice from "./components/AxiosPractice/AxiosPractice";
 
 const BASE_URL = "https://api.quotable.io";
 
 const App = () => {
-  const [authors, setAuthors] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState();
-  const [loadingPage, setLoadingPage] = useState(false);
+  const [data, setData] = useState([]);
 
-  function getAuthors(page) {
-    // setLoadingPage(true);
+  const getData = () => {
     axios
-      .get(`${BASE_URL}/authors?sortBy=quoteCount&page=${page}`)
-      .then((res) => {
-        setCurrentPage(res.data.page);
-        setTotalPages(res.data.totalPages);
-        setAuthors(res.data.results);
-        // setLoadingPage(true);
-      });
-  }
-  console.log(totalPages);
+      .get(`${BASE_URL}/quotes?order=asc`)
+      .then((res) => setData(res.data.results));
+  };
 
   useEffect(() => {
-    getAuthors(currentPage);
-  }, [currentPage]);
+    getData();
+  }, []);
+
   return (
     <div className="card-container">
-      <h1>Axios is installed</h1>
-      <h1>
-        Page {currentPage} / {totalPages}
-      </h1>
-      <button onClick={() => setCurrentPage((prev) => prev + 1)}>
-        Next page
-      </button>
-      {!loadingPage ? (
-        <div>
-          {authors.map((el) => (
-            <div key={el._id}>
-              <h3>{el.name}</h3>
-              <h4>{el.description}</h4>
-              <p>{el.bio}</p>
-              <p>Quote count : {el.quoteCount}</p>
-              <hr />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <h1>Loading page</h1>
-      )}
+      {data.map((el) => (
+        <AxiosPractice key={el.id} author={el.author} quote={el.content} />
+      ))}
     </div>
   );
 };

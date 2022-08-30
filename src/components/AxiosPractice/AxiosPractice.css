@@ -1,0 +1,19 @@
+.practice {
+    width: 80vh;
+    height: 40vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.left{
+    width: 30vw;
+    height: 30vh;
+    border: 5px black dotted;
+    text-align: center;
+}
+
+h5 {
+    text-align: start;
+    margin-left: 10px;
+}
