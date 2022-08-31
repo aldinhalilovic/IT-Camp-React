@@ -472,6 +472,14 @@ const App = () => {
       .then((res) => setData(res.data.results));
   };
 
+  const [secondData, setSecondData] = useState([]);
+
+  const getSecondData = () => {
+    axios
+      .get(`${BASE_URL}/quotes?order=asc&page=2`)
+      .then((res) => setSecondData(res.data.results));
+  };
+
   useEffect(() => {
     getData();
   }, []);
@@ -481,6 +489,8 @@ const App = () => {
       {data.map((el) => (
         <AxiosPractice key={el.id} author={el.author} quote={el.content} />
       ))}
+      {console.log(data)}
+      {/* // podaci  */}
     </div>
   );
 };
