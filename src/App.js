@@ -464,33 +464,86 @@ import AxiosPractice from "./components/AxiosPractice/AxiosPractice";
 const BASE_URL = "https://api.quotable.io";
 
 const App = () => {
-  const [data, setData] = useState([]);
-
-  const getData = () => {
-    axios
-      .get(`${BASE_URL}/quotes?order=asc`)
-      .then((res) => setData(res.data.results));
-  };
-
+  // const [data, setData] = useState([]);
   const [secondData, setSecondData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [formPage, setFormPage] = useState(1);
 
-  const getSecondData = () => {
+  // const getData = () => {
+  //   axios
+  //     .get(`${BASE_URL}/quotes?order=asc`)
+  //     .then((res) => setData(res.data.results));
+  // };
+
+  const getSecondData = (page) => {
     axios
-      .get(`${BASE_URL}/quotes?order=asc&page=2`)
+      .get(`${BASE_URL}/quotes?order=asc&page=${page}&limit=10`)
       .then((res) => setSecondData(res.data.results));
   };
 
   useEffect(() => {
-    getData();
-  }, []);
+    // getData();
+    getSecondData(page);
+  }, [page]);
 
+  console.log(page);
   return (
-    <div className="card-container">
-      {data.map((el) => (
-        <AxiosPractice key={el.id} author={el.author} quote={el.content} />
-      ))}
-      {console.log(data)}
-      {/* // podaci  */}
+    <div>
+      {/* <div className="navi">
+        <div className="buttons">
+          <button
+            className="previouse"
+            disabled={page === 1}
+            onClick={() => {
+              setPage((prev) => (prev -= 1));
+            }}
+          >
+            Click me Previouse
+          </button>
+
+          <h1>Page : {page}</h1>
+
+          <button
+            className="next"
+            onClick={() => {
+              setPage((prev) => (prev += 1));
+            }}
+          >
+            Click me Next
+          </button>
+        </div>
+      </div> */}
+
+      <div className="input-sector">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            setPage(formPage);
+            setFormPage("");
+          }}
+        >
+          <input
+            placeholder="Unesi stranu"
+            value={formPage}
+            onChange={(e) => {
+              // e.preventDefault();
+              setFormPage(() => e.target.value);
+            }}
+          ></input>
+        </form>
+      </div>
+
+      <div className="card-container">
+        {/* <div>
+          {data.map((el) => (
+            <AxiosPractice key={el.id} author={el.author} quote={el.content} />
+          ))}
+        </div> */}
+
+        {secondData.map((el) => (
+          <AxiosPractice key={el.id} author={el.author} quote={el.content} />
+        ))}
+      </div>
     </div>
   );
 };
