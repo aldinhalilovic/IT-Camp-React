@@ -464,16 +464,16 @@ import AxiosPractice from "./components/AxiosPractice/AxiosPractice";
 const BASE_URL = "https://api.quotable.io";
 
 const App = () => {
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
   const [secondData, setSecondData] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState();
   const [formPage, setFormPage] = useState(1);
 
-  // const getData = () => {
-  //   axios
-  //     .get(`${BASE_URL}/quotes?order=asc`)
-  //     .then((res) => setData(res.data.results));
-  // };
+  const getData = () => {
+    axios
+      .get(`${BASE_URL}/quotes?order=asc`)
+      .then((res) => setData(res.data.results));
+  };
 
   const getSecondData = (page) => {
     axios
@@ -482,7 +482,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    // getData();
+    getData();
     getSecondData(page);
   }, [page]);
 
@@ -534,15 +534,16 @@ const App = () => {
       </div>
 
       <div className="card-container">
-        {/* <div>
+        <div className="card">
+          {secondData.map((el) => (
+            <AxiosPractice key={el.id} author={el.author} quote={el.content} />
+          ))}
+        </div>
+        <div className="card-right">
           {data.map((el) => (
             <AxiosPractice key={el.id} author={el.author} quote={el.content} />
           ))}
-        </div> */}
-
-        {secondData.map((el) => (
-          <AxiosPractice key={el.id} author={el.author} quote={el.content} />
-        ))}
+        </div>
       </div>
     </div>
   );
