@@ -466,7 +466,7 @@ const BASE_URL = "https://api.quotable.io";
 const App = () => {
   const [data, setData] = useState([]);
   const [secondData, setSecondData] = useState([]);
-  const [page, setPage] = useState();
+  const [page, setPage] = useState(1);
   const [formPage, setFormPage] = useState(1);
 
   const getData = () => {
@@ -489,9 +489,9 @@ const App = () => {
   console.log(page);
   return (
     <div>
-      {/* <div className="navi">
+      <div className="navi">
         <div className="buttons">
-          <button
+          {/* <button
             className="previouse"
             disabled={page === 1}
             onClick={() => {
@@ -499,20 +499,20 @@ const App = () => {
             }}
           >
             Click me Previouse
-          </button>
+          </button> */}
 
           <h1>Page : {page}</h1>
 
-          <button
+          {/* <button
             className="next"
             onClick={() => {
               setPage((prev) => (prev += 1));
             }}
           >
             Click me Next
-          </button>
+          </button> */}
         </div>
-      </div> */}
+      </div>
 
       <div className="input-sector">
         <form
