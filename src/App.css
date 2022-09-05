@@ -7,7 +7,7 @@
   align-items: center;
   color: white;
 }  */
-
+/* 
 .buttons{
   width: 100%;
   display: flex;
@@ -54,4 +54,11 @@ input{
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+} */
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
