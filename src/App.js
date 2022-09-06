@@ -398,6 +398,8 @@
 
 // export default App
 
+// AXIOS CAS
+
 // const BASE_URL = "https://api.quotable.io";
 
 // const App = () => {
@@ -455,6 +457,8 @@
 // };
 
 // export default App;
+
+// AXIOS PRIMER
 
 // import axios from "axios";
 // import React, { useEffect, useState } from "react";
@@ -556,9 +560,19 @@ import Button from "@mui/material/Button";
 import "./App.css";
 
 function App() {
+  const [show, setShow] = React.useState(false);
+
   return (
     <div className="card-container">
-      <Button disabled>Hello World</Button>
+      <Button variant="contained" onClick={() => setShow((prev) => !prev)}>
+        Hello World
+      </Button>
+
+      {show && (
+        <>
+          <h1>pokazi mi ovo</h1>
+        </>
+      )}
     </div>
   );
 }
