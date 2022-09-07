@@ -593,7 +593,7 @@ export default App;
 
 // bulma, chakra, ..... mantin, next ui, material kit,
 
-// drible za informacije
+// drible za informacije, inspiraciju
 // uzima se everything
 // mora paginacija
 // navbar od 4 dugmeta
