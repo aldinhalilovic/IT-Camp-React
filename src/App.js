@@ -557,24 +557,49 @@
 
 import * as React from "react";
 import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
 import "./App.css";
+import { useAutocomplete } from "@mui/material";
 
 function App() {
-  const [show, setShow] = React.useState(false);
-
+  // const [show, setShow] = React.useState(false);
+  const [number, setNumber] = React.useState(1);
   return (
     <div className="card-container">
-      <Button variant="contained" onClick={() => setShow((prev) => !prev)}>
-        Hello World
-      </Button>
-
-      {show && (
-        <>
-          <h1>pokazi mi ovo</h1>
-        </>
-      )}
+      {number}
+      <ButtonGroup size="large">
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => setNumber((prev) => prev + 1)}
+        >
+          increase
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          style={{
+            marginLeft: 20,
+          }}
+        >
+          Hello World
+        </Button>
+      </ButtonGroup>
     </div>
   );
 }
 
 export default App;
+
+// bulma, chakra, ..... mantin, next ui, material kit,
+
+// drible za informacije
+// uzima se everything
+// mora paginacija
+// navbar od 4 dugmeta
+// po izboru teme,
+// dole u stranicu  ima 3 kartice, 3 vesti
+// paginacija na donjem delu stranice
+// heder komponenta
+// komponenta za karticu i paginaciju
+//
