@@ -555,41 +555,38 @@
 
 // export default App;
 
-import * as React from "react";
-import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
-import "./App.css";
-import { useAutocomplete } from "@mui/material";
+// import * as React from "react";
+// import Button from "@mui/material/Button";
+// import ButtonGroup from "@mui/material/ButtonGroup";
+// import "./App.css";
+// import { useAutocomplete } from "@mui/material";
 
-function App() {
-  // const [show, setShow] = React.useState(false);
-  const [number, setNumber] = React.useState(1);
-  return (
-    <div className="card-container">
-      {number}
-      <ButtonGroup size="large">
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => setNumber((prev) => prev + 1)}
-        >
-          increase
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          style={{
-            marginLeft: 20,
-          }}
-        >
-          Hello World
-        </Button>
-      </ButtonGroup>
-    </div>
-  );
-}
-
-export default App;
+// function App() {
+//   const [number, setNumber] = React.useState(1);
+//   return (
+//     <div className="card-container">
+//       {number}
+//       <ButtonGroup size="large">
+//         <Button
+//           variant="contained"
+//           color="primary"
+//           onClick={() => setNumber((prev) => prev + 1)}
+//         >
+//           increase
+//         </Button>
+//         <Button
+//           variant="contained"
+//           color="secondary"
+//           style={{
+//             marginLeft: 20,
+//           }}
+//         >
+//           Hello World
+//         </Button>
+//       </ButtonGroup>
+//     </div>
+//   );
+// }
 
 // bulma, chakra, ..... mantin, next ui, material kit,
 
@@ -603,3 +600,26 @@ export default App;
 // heder komponenta
 // komponenta za karticu i paginaciju
 //
+
+// 9/9/2022
+// react router dom instalirali
+import React from "react";
+import "./App.css";
+import { Routes, Route, Link, NavLink } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import TeamPage from "./pages/TeamPage/TeamPage";
+
+function App() {
+  return (
+    <div className="card-container">
+      <h1>Navbar</h1>
+      <Routes>
+        <Route path="/" element={<h1>Home Page</h1>} />
+        <Route path="about" element={<h1>About Page</h1>} />
+        <Route path="home" element={<HomePage />} />
+        <Route path="team" element={<TeamPage />} />
+      </Routes>
+    </div>
+  );
+}
+export default App;
