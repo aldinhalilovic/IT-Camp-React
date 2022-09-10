@@ -609,12 +609,42 @@ import { Routes, Route, Link, NavLink } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import TeamPage from "./pages/TeamPage/TeamPage";
 
+let activeStyle = {
+  backgroundColor: "black",
+  color: "yellow",
+};
+
+let activeClassname = {
+  color: "green",
+};
+
 function App() {
   return (
     <div className="card-container">
-      <h1>Navbar</h1>
+      <div>
+        <NavLink
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          to="/"
+        >
+          <h1>render</h1>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? activeClassname : undefined)}
+          to="/home"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          <h1>Home</h1>
+        </NavLink>
+        <NavLink
+          to="/team"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          <h1>Team Page</h1>
+        </NavLink>
+      </div>
+
       <Routes>
-        <Route path="/" element={<h1>Home Page</h1>} />
+        <Route path="/" element={<h1>React Render</h1>} />
         <Route path="about" element={<h1>About Page</h1>} />
         <Route path="home" element={<HomePage />} />
         <Route path="team" element={<TeamPage />} />
