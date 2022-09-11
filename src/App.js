@@ -648,6 +648,7 @@ function App() {
         <Route path="about" element={<h1>About Page</h1>} />
         <Route path="home" element={<HomePage />} />
         <Route path="team" element={<TeamPage />} />
+        <Route path="home/maverick" element={<h1>Maverick</h1>} />
       </Routes>
     </div>
   );

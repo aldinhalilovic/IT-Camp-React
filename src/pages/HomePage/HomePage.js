@@ -28,7 +28,10 @@ const HomePage = () => {
           justifyContent: "space-evenly",
         }}
       >
-        <Card sx={{ maxWidth: 345, mt: 3 }}>
+        <Card
+          sx={{ maxWidth: 345, mt: 3 }}
+          onClick={() => navigate("/home/maverick")}
+        >
           <CardActionArea>
             <CardMedia
               component="img"
