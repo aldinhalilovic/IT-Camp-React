@@ -609,39 +609,39 @@ import { Routes, Route, Link, NavLink } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import TeamPage from "./pages/TeamPage/TeamPage";
 
-let activeStyle = {
-  backgroundColor: "black",
-  color: "yellow",
-};
-
-let activeClassname = {
-  color: "green",
+const active = {
+  color: "#fbf3f2",
+  textDecoration: "none",
+  marginLeft: 20,
+  transition: "0.3s",
 };
 
 function App() {
   return (
     <div className="card-container">
-      <div>
+      <nav className="navbar">
         <NavLink
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          to="/"
-        >
-          <h1>render</h1>
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => (isActive ? activeClassname : undefined)}
+          className={({ isActive }) => !isActive && "standardClass"}
+          style={({ isActive }) => (isActive ? active : undefined)}
           to="/home"
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
           <h1>Home</h1>
         </NavLink>
         <NavLink
+          className={({ isActive }) => !isActive && "standardClass"}
+          style={({ isActive }) => (isActive ? active : undefined)}
+          to="/"
+        >
+          <h1>Main Page </h1>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => !isActive && "standardClass"}
+          style={({ isActive }) => (isActive ? active : undefined)}
           to="/team"
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
           <h1>Team Page</h1>
         </NavLink>
-      </div>
+      </nav>
 
       <Routes>
         <Route path="/" element={<h1>React Render</h1>} />

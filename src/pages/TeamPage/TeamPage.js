@@ -1,13 +1,25 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 const TeamPage = () => {
   const navigate = useNavigate();
+
   return (
     <div>
-      <h1>Ovo je Team Page</h1>
-      <h2>Dosli smo ovde pomocu rendera, ruth-om /team /</h2>
-      <button onClick={() => navigate("/home")}>Go to Home Page</button>
+      <ol>
+        <li>smlksl</li>
+        <li>The Shawshank Redemption (1994) 9.2.</li>
+        <li> The Godfather (1972) 9.2.</li>
+        <li>The Dark Knight (2008) 9.0. </li>
+        <li>12 AngryMen (1957) 8.9.</li>
+        <li>Schindler's List (1993) 8.9.</li>
+        <li>The Lord of the Rings: The Return of the King (2003) 8.9. </li>
+        <li>Pulp Fiction (1994) 8.8.</li>
+      </ol>
+      <Button variant="outlined" onClick={() => navigate("/home")}>
+        Go back to Home Page
+      </Button>
     </div>
   );
 };
