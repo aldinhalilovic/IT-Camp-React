@@ -20,17 +20,7 @@ const HomePage = () => {
         alignItems: "center",
       }}
     >
-      <button
-        onClick={() =>
-          navigate("/team", {
-            state: {
-              name: "john",
-            },
-          })
-        }
-      >
-        j,fdhk,djsfdjsk
-      </button>
+      <button onClick={() => navigate("/team")}>Go to TeamPage</button>
       {/* <Box
         sx={{
           width: "100vw",

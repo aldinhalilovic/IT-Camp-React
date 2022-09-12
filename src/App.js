@@ -605,40 +605,42 @@
 // react router dom instalirali
 import React from "react";
 import "./App.css";
-import { Routes, Route, Link, NavLink } from "react-router-dom";
+import { Routes, Route, Link, NavLink, useNavigate } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import TeamPage from "./pages/TeamPage/TeamPage";
-import SingleHome from "./pages/HomePage/SingleHome";
+import SinglePage from "./pages/TeamPage/SinglePage";
 
-const active = {
-  color: "#fbf3f2",
-  textDecoration: "none",
-  marginLeft: 20,
-  transition: "0.3s",
-};
+// const active = {
+//   color: "#fbf3f2",
+//   textDecoration: "none",
+//   marginLeft: 20,
+//   transition: "0.3s",
+// };
 
 function App() {
+  // const navigate = useNavigate();
   return (
     <div className="card-container">
       <nav className="navbar">
         <NavLink
-          className={({ isActive }) => !isActive && "standardClass"}
-          style={({ isActive }) => (isActive ? active : undefined)}
-          to="/home"
-        >
-          <h1>Home</h1>
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => !isActive && "standardClass"}
-          style={({ isActive }) => (isActive ? active : undefined)}
+          // className={({ isActive }) => !isActive && "standardClass"}
+          // style={({ isActive }) => (isActive ? active : undefined)}
           to="/"
         >
           <h1>Main Page </h1>
         </NavLink>
         <NavLink
-          className={({ isActive }) => !isActive && "standardClass"}
-          style={({ isActive }) => (isActive ? active : undefined)}
-          to="/team"
+          // className={({ isActive }) => !isActive && "standardClass"}
+          // style={({ isActive }) => (isActive ? active : undefined)}
+          to="/home"
+        >
+          <h1>Home</h1>
+        </NavLink>
+
+        <NavLink
+          // className={({ isActive }) => !isActive && "standardClass"}
+          // style={({ isActive }) => (isActive ? active : undefined)}
+          to="team"
         >
           <h1>Team Page</h1>
         </NavLink>
@@ -648,7 +650,7 @@ function App() {
         <Route path="/" element={<h1>React Render</h1>} />
         <Route path="about" element={<h1>About Page</h1>} />
         <Route path="home" element={<HomePage />} />
-        <Route path="home/:id" element={<SingleHome />} />
+        <Route path="team/:id" element={<SinglePage />} />
         <Route path="team" element={<TeamPage />} />
         {/* <Route path="home/maverick" element={<h1>Maverick</h1>} /> */}
       </Routes>
