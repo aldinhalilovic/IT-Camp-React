@@ -608,6 +608,7 @@ import "./App.css";
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import TeamPage from "./pages/TeamPage/TeamPage";
+import SingleHome from "./pages/HomePage/SingleHome";
 
 const active = {
   color: "#fbf3f2",
@@ -647,10 +648,13 @@ function App() {
         <Route path="/" element={<h1>React Render</h1>} />
         <Route path="about" element={<h1>About Page</h1>} />
         <Route path="home" element={<HomePage />} />
+        <Route path="home/:id" element={<SingleHome />} />
         <Route path="team" element={<TeamPage />} />
-        <Route path="home/maverick" element={<h1>Maverick</h1>} />
+        {/* <Route path="home/maverick" element={<h1>Maverick</h1>} /> */}
       </Routes>
     </div>
   );
 }
 export default App;
+
+//filmovi na /movie, serije na /series

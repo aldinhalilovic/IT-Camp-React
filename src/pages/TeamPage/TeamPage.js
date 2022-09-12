@@ -1,13 +1,15 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Button from "@mui/material/Button";
 
 const TeamPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location.state);
 
   return (
     <div>
-      <ol>
+      {/* <ol>
         <li>smlksl</li>
         <li>The Shawshank Redemption (1994) 9.2.</li>
         <li> The Godfather (1972) 9.2.</li>
@@ -19,7 +21,9 @@ const TeamPage = () => {
       </ol>
       <Button variant="outlined" onClick={() => navigate("/home")}>
         Go back to Home Page
-      </Button>
+      </Button> */}
+      <h1>lkadjaklsdjklajslk</h1>
+      <h1>{location.state.name}</h1>
     </div>
   );
 };

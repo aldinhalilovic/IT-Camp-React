@@ -20,7 +20,18 @@ const HomePage = () => {
         alignItems: "center",
       }}
     >
-      <Box
+      <button
+        onClick={() =>
+          navigate("/team", {
+            state: {
+              name: "john",
+            },
+          })
+        }
+      >
+        j,fdhk,djsfdjsk
+      </button>
+      {/* <Box
         sx={{
           width: "100vw",
           // height: "90vh",
@@ -119,7 +130,8 @@ const HomePage = () => {
         sx={{ m: 4, alignSelf: "flex-end" }}
       >
         Go to list
-      </Button>
+      </Button> */}
+      <h1>kjadsklsajdlk</h1>
     </div>
   );
 };
