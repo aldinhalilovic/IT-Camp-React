@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -7,9 +7,12 @@ import { CardActionArea } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import { Context } from "../../App";
 
 const HomePage = () => {
   const navigate = useNavigate();
+
+  const message = useContext(Context);
   return (
     <div
       style={{
@@ -21,7 +24,17 @@ const HomePage = () => {
       }}
     >
       <button onClick={() => navigate("/team")}>Go to TeamPage</button>
-      {/* <Box
+      <h1>{message.color}</h1>
+      <h1>kjadsklsajdlk</h1>
+      <button onClick={() => message.setColor("red")}> change to red</button>
+    </div>
+  );
+};
+
+export default HomePage;
+
+{
+  /* <Box
         sx={{
           width: "100vw",
           // height: "90vh",
@@ -120,10 +133,5 @@ const HomePage = () => {
         sx={{ m: 4, alignSelf: "flex-end" }}
       >
         Go to list
-      </Button> */}
-      <h1>kjadsklsajdlk</h1>
-    </div>
-  );
-};
-
-export default HomePage;
+      </Button> */
+}

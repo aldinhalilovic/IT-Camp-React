@@ -30,13 +30,16 @@
 
 // export default TeamPage;
 
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Context } from "../../App";
 
 const TeamPage = () => {
   const [user, setUser] = useState([]);
   const navigate = useNavigate();
+
+  const color = useContext(Context);
 
   const getUsers = async () => {
     const res = await axios.get("https://jsonplaceholder.typicode.com/users");
@@ -53,6 +56,7 @@ const TeamPage = () => {
         width: "100%",
         height: "90vh",
         display: "flex",
+        flexDirection: "column",
         justifyContent: "space-evenly",
         alignItems: "center",
       }}
@@ -88,6 +92,7 @@ const TeamPage = () => {
           </div>
         );
       })}
+      {color.color}
     </div>
   );
 };

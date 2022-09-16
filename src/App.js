@@ -603,12 +603,13 @@
 
 // 9/9/2022
 // react router dom instalirali
-import React from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import "./App.css";
 import { Routes, Route, Link, NavLink, useNavigate } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import TeamPage from "./pages/TeamPage/TeamPage";
 import SinglePage from "./pages/TeamPage/SinglePage";
+import axios from "axios";
 
 // const active = {
 //   color: "#fbf3f2",
@@ -617,43 +618,45 @@ import SinglePage from "./pages/TeamPage/SinglePage";
 //   transition: "0.3s",
 // };
 
+export const Context = createContext("something");
+
 function App() {
   // const navigate = useNavigate();
+  const [color, setColor] = useState("blue");
+  async function getMovies() {
+    const res = await axios.get(
+      `https://imdb-api.com/en/API/SearchMovie/k_w7k9gevm/fast`
+    );
+    console.log(res.data);
+  }
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+
   return (
     <div className="card-container">
       <nav className="navbar">
-        <NavLink
-          // className={({ isActive }) => !isActive && "standardClass"}
-          // style={({ isActive }) => (isActive ? active : undefined)}
-          to="/"
-        >
+        <NavLink to="/">
           <h1>Main Page </h1>
         </NavLink>
-        <NavLink
-          // className={({ isActive }) => !isActive && "standardClass"}
-          // style={({ isActive }) => (isActive ? active : undefined)}
-          to="/home"
-        >
+        <NavLink to="/home">
           <h1>Home</h1>
         </NavLink>
 
-        <NavLink
-          // className={({ isActive }) => !isActive && "standardClass"}
-          // style={({ isActive }) => (isActive ? active : undefined)}
-          to="team"
-        >
+        <NavLink to="team">
           <h1>Team Page</h1>
         </NavLink>
       </nav>
-
-      <Routes>
-        <Route path="/" element={<h1>React Render</h1>} />
-        <Route path="about" element={<h1>About Page</h1>} />
-        <Route path="home" element={<HomePage />} />
-        <Route path="team/:id" element={<SinglePage />} />
-        <Route path="team" element={<TeamPage />} />
-        {/* <Route path="home/maverick" element={<h1>Maverick</h1>} /> */}
-      </Routes>
+      <Context.Provider value={{ color, setColor }}>
+        <Routes>
+          <Route path="/" element={<h1>React Render</h1>} />
+          <Route path="about" element={<h1>About Page</h1>} />
+          <Route path="home" element={<HomePage />} />
+          <Route path="team/:id" element={<SinglePage />} />
+          <Route path="team" element={<TeamPage />} />
+        </Routes>
+      </Context.Provider>
     </div>
   );
 }
