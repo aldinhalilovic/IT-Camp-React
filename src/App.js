@@ -647,6 +647,9 @@ function App() {
         <NavLink to="team">
           <h1>Team Page</h1>
         </NavLink>
+        <NavLink to="stuff">
+          <h1>stuff Page</h1>
+        </NavLink>
       </nav>
       <Context.Provider value={{ color, setColor }}>
         <Routes>
@@ -655,6 +658,7 @@ function App() {
           <Route path="home" element={<HomePage />} />
           <Route path="team/:id" element={<SinglePage />} />
           <Route path="team" element={<TeamPage />} />
+          <Route path="stuff" element={<TeamPage />} />
         </Routes>
       </Context.Provider>
     </div>
