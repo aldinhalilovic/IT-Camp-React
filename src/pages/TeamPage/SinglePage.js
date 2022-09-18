@@ -1,10 +1,13 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Context } from "../../App";
 
 export default function SinglePage() {
   const { id } = useParams();
   const [singleUser, setSingelUser] = useState({});
+
+  const context = useContext(Context);
 
   const navigate = useNavigate();
 
@@ -37,6 +40,7 @@ export default function SinglePage() {
           <h2>{singleUser?.username}</h2>
           <h3>{singleUser?.phone}</h3>
           <h3>{singleUser?.email}</h3>
+          <h3>{context}</h3>
         </div>
       ) : (
         <h1>loading...</h1>

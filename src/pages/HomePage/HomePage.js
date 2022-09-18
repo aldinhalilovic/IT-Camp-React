@@ -1,40 +1,47 @@
-import React, { useContext } from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
-import { Context } from "../../App";
+// import React, { useContext, useState } from "react";
+// import Card from "@mui/material/Card";
+// import CardContent from "@mui/material/CardContent";
+// import CardMedia from "@mui/material/CardMedia";
+// import Typography from "@mui/material/Typography";
+// import { CardActionArea } from "@mui/material";
+// import Box from "@mui/material/Box";
+// import Button from "@mui/material/Button";
+// import { useNavigate } from "react-router-dom";
+// import { Context } from "../../App";
 
-const HomePage = () => {
-  const navigate = useNavigate();
+// const HomePage = () => {
+//   const navigate = useNavigate();
+//   const message = "Welcome to Home Page";
 
-  const message = useContext(Context);
-  return (
-    <div
-      style={{
-        width: "100vw",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <button onClick={() => navigate("/team")}>Go to TeamPage</button>
-      <h1>{message.color}</h1>
-      <h1>kjadsklsajdlk</h1>
-      <button onClick={() => message.setColor("red")}> change to red</button>
-    </div>
-  );
-};
+//   const [changeColor, setChangeColor] = useState(message);
 
-export default HomePage;
+//   return (
+//     <div
+//       style={{
+//         width: "100vw",
+//         display: "flex",
+//         flexDirection: "column",
+//         justifyContent: "center",
+//         alignItems: "center",
+//       }}
+//     >
+//       <h1>
+//         <strong>HOME</strong>
+//       </h1>
 
-{
-  /* <Box
+//       <button onClick={() => navigate("/team")}>Go to TeamPage</button>
+
+//       <h1>{changeColor}</h1>
+
+//       <button onClick={() => setChangeColor("red")}> change to red</button>
+//     </div>
+//   );
+// };
+
+// export default HomePage;
+
+// {
+/* <Box
         sx={{
           width: "100vw",
           // height: "90vh",
@@ -134,4 +141,12 @@ export default HomePage;
       >
         Go to list
       </Button> */
+// }
+
+import React from "react";
+
+function HomePage() {
+  return <div>HomePage</div>;
 }
+
+export default HomePage;
