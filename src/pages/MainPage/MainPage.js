@@ -1,25 +1,16 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../../App";
+import { PrimerContext, UserContext } from "../../App";
 import "./MainPage.css";
 
 function MainPage() {
-  const color = useContext(Context);
-  const [content, setContent] = useState(color);
+  const { user, setUser } = useContext(UserContext);
 
   return (
-    <div
-      className="container"
-      style={{
-        backgroundColor: content,
-      }}
-    >
-      <h1>MAIN PAGE</h1>
-      <br />
-      <h1>Context is: {content} </h1>
-      <br />
-      <button onClick={() => setContent("red")}>
-        <strong>Click me!</strong>
-      </button>
+    <div>
+      <h1>Main Page</h1>
+      <button>{user.name === "" ? "Log in" : "Log out"}</button>
+
+      {user.name === "" ? <h1>Niste Ulogovani</h1> : <h1>Ulogovani ste</h1>}
     </div>
   );
 }

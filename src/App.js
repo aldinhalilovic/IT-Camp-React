@@ -632,32 +632,52 @@ import SinglePage from "./pages/TeamPage/SinglePage";
 import axios from "axios";
 import MainPage from "./pages/MainPage/MainPage";
 
-export const Context = createContext();
+export const UserContext = createContext();
 
 function App() {
+  const active = {
+    color: "#cccccc",
+  };
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    adress: "",
+  });
+
+  const value = { user, setUser };
+
   return (
     <div className="card-container">
       <nav className="navbar">
-        <NavLink to="/">
+        <NavLink
+          to="/"
+          style={({ isActive }) => (isActive ? active : undefined)}
+        >
           <h1>Main Page </h1>
         </NavLink>
-        <NavLink to="/home">
+        <NavLink
+          to="/home"
+          style={({ isActive }) => (isActive ? active : undefined)}
+        >
           <h1>Home</h1>
         </NavLink>
 
-        <NavLink to="team">
+        <NavLink
+          to="team"
+          style={({ isActive }) => (isActive ? active : undefined)}
+        >
           <h1>Team Page</h1>
         </NavLink>
       </nav>
-      <Context.Provider value={"blue"}>
+      <UserContext.Provider value={value}>
         <Routes>
           <Route path="/" element={<MainPage />} />
           {/* <Route path="about" element={<h1>About Page</h1>} /> */}
           <Route path="home" element={<HomePage />} />
-          {/* <Route path="team/:id" element={<SinglePage />} /> */}
+          <Route path="team/single" element={<SinglePage />} />
           <Route path="team" element={<TeamPage />} />
         </Routes>
-      </Context.Provider>
+      </UserContext.Provider>
     </div>
   );
 }

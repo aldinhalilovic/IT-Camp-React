@@ -101,9 +101,18 @@
 // export default TeamPage;
 
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function TeamPage() {
-  return <div>TeamPage</div>;
+  const navigate = useNavigate();
+  return (
+    <div>
+      <h1>TeamPage</h1>
+      <button onClick={() => navigate("/team/single")}>
+        <strong>Go on single page</strong>
+      </button>
+    </div>
+  );
 }
 
 export default TeamPage;
