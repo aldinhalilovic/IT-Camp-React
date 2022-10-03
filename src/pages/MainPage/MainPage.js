@@ -10,7 +10,7 @@ function MainPage() {
       <h1>Main Page</h1>
       <button>{user.name === "" ? "Log in" : "Log out"}</button>
 
-      {user.name === "" ? <h1>Niste Ulogovani</h1> : <h1>Ulogovani ste</h1>}
+      {user.name === "" ? <h1>Niste Ulogovani</h1> : <h1>Ulogovali ste se</h1>}
     </div>
   );
 }
