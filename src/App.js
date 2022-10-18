@@ -623,32 +623,54 @@
 //   getMovies();
 // }, []);
 
-import React, { createContext, useContext, useEffect, useState } from "react";
-import "./App.css";
-import { Routes, Route, Link, NavLink, useNavigate } from "react-router-dom";
-import HomePage from "./pages/HomePage/HomePage";
-import TeamPage from "./pages/TeamPage/TeamPage";
-import SinglePage from "./pages/TeamPage/SinglePage";
-import axios from "axios";
-import MainPage from "./pages/MainPage/MainPage";
+// import React, { createContext, useContext, useEffect, useState } from "react";
+// import "./App.css";
+// import axios from "axios";
+// import { Sparklines, SparklinesLine, SparklinesSpots } from "react-sparklines";
+// import { Bar, Line } from "react-chartjs-2";
+// import { Chart as ChartJS } from "chart.js/auto";
 
-export const UserContext = createContext();
+// export const UserContext = createContext();
 
-function App() {
-  const active = {
-    color: "#cccccc",
-  };
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    adress: "",
-  });
+// function App() {
+//   const [data, setData] = useState([]);
 
-  const value = { user, setUser };
+//   const options = {
+//     method: "GET",
+//     url: `https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd`,
+//     params: { referenceCurrencyUuid: "yhjMzLPhuIDl", timePeriod: "24h" },
+//     headers: {
+//       "X-RapidAPI-Key": "4f0338cc68mshdb53cc86cfb2e35p19f053jsn63ffee5719a2",
+//       "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
+//     },
+//   };
+//   const getData = () => {
+//     axios.request(options).then(function (response) {
+//       console.log(response.data.data.coin);
+//       setData(response.data.data.coin.sparkline);
+//     });
+//   };
 
-  return (
-    <div className="card-container">
-      <nav className="navbar">
+//   useEffect(() => {
+//     getData();
+//   }, []);
+
+//   return (
+//     <div className="card-container">
+//       <div
+//         style={{
+//           width: "100px",
+//           height: "20px",
+//         }}
+//       >
+//         <Sparklines data={data.map((el) => el)}>
+//           <SparklinesLine color="teal" />
+//         </Sparklines>
+//       </div>
+//     </div>
+//   );
+// }
+/* <nav className="navbar">
         <NavLink
           to="/"
           style={({ isActive }) => (isActive ? active : undefined)}
@@ -672,13 +694,72 @@ function App() {
       <UserContext.Provider value={value}>
         <Routes>
           <Route path="/" element={<MainPage />} />
-          {/* <Route path="about" element={<h1>About Page</h1>} /> */}
-          <Route path="home" element={<HomePage />} />
-          <Route path="team/single" element={<SinglePage />} />
-          <Route path="team" element={<TeamPage />} />
-        </Routes>
-      </UserContext.Provider>
+          {/* <Route path="about" element={<h1>About Page</h1>} /> */
+
+//     <Route path="home" element={<HomePage />} />
+//     <Route path="team/single" element={<SinglePage />} />
+//     <Route path="team" element={<TeamPage />} />
+//   </Routes>
+// </UserContext.Provider> */}
+// );
+// }
+// export default App;
+
+import React, { useContext, useState } from "react";
+import CoinCard from "./components/CoinCard";
+import { appContext } from "./components/Context";
+
+function App() {
+  const { modalData, coinValue } = useContext(appContext);
+  console.log(modalData);
+  const [list, setList] = useState(false);
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      {!list ? (
+        <div>
+          {modalData.slice(0, 2).map((el) => (
+            <div key={el.uuid}>
+              <CoinCard
+                name={el.name}
+                price={el.price}
+                marketCap={el.marketCap}
+              />
+              <hr />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div>
+          {modalData.slice(0, 2).map((el) => (
+            <div key={el.uuid}>
+              <h1>{el.name}</h1>
+              <h2>{Number(el.price).toLocaleString()}</h2>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* {modalData.slice(0, 2).map((el) => (
+        <div key={el.uuid}>
+          <CoinCard name={el.name} price={el.price} marketCap={el.marketCap} />
+          <hr />
+        </div>
+      ))} */}
+      <button
+        style={{
+          width: "50px",
+        }}
+        onClick={() => setList(true)}
+      >
+        Click me
+      </button>
     </div>
   );
 }
+
 export default App;
